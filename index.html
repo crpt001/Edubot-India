@@ -172,12 +172,12 @@ async function send(){
   showTy();
   try{
     var body=JSON.stringify({
-      model:'claude-haiku-4-5-20251001',
+      model:'claude-sonnet-4-20250514',
       max_tokens:1024,
       system:SYS,
       messages:hist
     });
-    var proxyUrl='https://api.allorigins.win/raw?url='+encodeURIComponent'+encodeURIComponent('https://api.anthropic.com/v1/messages');
+    var proxyUrl='https://corsproxy.io/?url='+encodeURIComponent('https://api.anthropic.com/v1/messages');
     var res=await fetch(proxyUrl,{
       method:'POST',
       headers:{

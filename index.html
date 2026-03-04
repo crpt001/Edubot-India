@@ -24,7 +24,7 @@ header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 60%,var(--
 .bot-av{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;margin-right:12px;}
 .sdot{width:7px;height:7px;background:#4cff6e;border-radius:50%;animation:pulse 2s infinite;display:inline-block;margin-right:5px;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
-.msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:400px;max-height:480px;}
+.msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:400px;max-height:500px;}
 .msgs::-webkit-scrollbar{width:4px;}
 .msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
 .msg{display:flex;gap:10px;align-items:flex-end;animation:fu .3s ease;}
@@ -47,7 +47,8 @@ header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 60%,var(--
 .ti{display:flex;gap:5px;align-items:center;padding:4px 0;}
 .ti span{width:8px;height:8px;background:var(--muted);border-radius:50%;animation:bo 1.3s infinite;}
 .ti span:nth-child(2){animation-delay:.2s;}.ti span:nth-child(3){animation-delay:.4s;}
-@keyframes bo{0%,60%,100%{transform.sc-cur{display:inline-block;width:2px;height:1em;background:var(--navy);animation:bl .7s infinite;vertical-align:text-bottom;margin-left:2px;}
+@keyframes bo{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-8px);}}
+.sc-cur{display:inline-block;width:2px;height:1em;background:var(--navy);animation:bl .7s infinite;vertical-align:text-bottom;margin-left:2px;}
 @keyframes bl{0%,100%{opacity:1;}50%{opacity:0;}}
 .chips{padding:8px 16px 4px;display:flex;gap:7px;flex-wrap:wrap;background:#fafbff;border-top:1px solid var(--border);}
 .ch{background:#fff;border:1.5px solid var(--border);color:var(--navy);font-size:.75rem;font-weight:600;font-family:'Nunito',sans-serif;padding:5px 11px;border-radius:20px;cursor:pointer;white-space:nowrap;}
@@ -59,7 +60,8 @@ header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 60%,var(--
 .snd:disabled{opacity:.5;cursor:not-allowed;}
 .footer{text-align:center;font-size:.72rem;color:var(--muted);padding:10px;background:#fff;border-top:1px solid var(--border);}
 </style>
-</head><body>
+</head>
+<body>
 <header>
   <div class="logo">
     <div class="logo-icon">📚</div>
@@ -92,28 +94,27 @@ header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 60%,var(--
         <div class="bub">
           🙏 <strong>Namaste! Welcome to EduBot India!</strong><br><br>
           Main aapka <strong>FREE AI Study Assistant</strong> hoon! Main help kar sakta hoon:<br><br>
-          • 📚 <strong>Class 1-12</strong> — NCERT, CBSE, ICSE, JKBOSE, sab boards<br>
+          • 📚 <strong>Class 1-12</strong> — NCERT, CBSE, ICSE, JKBOSE<br>
           • 🏛️ <strong>UPSC</strong> — Prelims, Mains, Interview<br>
-          • 🏔️ <strong>J&amp;K Govt Jobs</strong> — JKSSB, JKPSC, Police, Teachers<br>
-          • 📊 <strong>Central Jobs</strong> — SSC, Railway, Banking, Defence<br>
-          • 🔬 <strong>JEE, NEET, CUET</strong> Entrance Exams<br><br>
+          • 🏔️ <strong>J&amp;K Govt Jobs</strong> — JKSSB, JKPSC, Police<br>
+          • 📊 <strong>Central Jobs</strong> — SSC, Railway, Banking<br>
+          • 🔬 <strong>JEE, NEET, CUET</strong><br><br>
           <strong>Hindi ya English</strong> mein poochho! 🇮🇳
           <div class="qs">
-            <button class="sb" onclick="qa('Class 10 Science ke most important chapters board exam ke liye')">Class 10 Science</button>
-            <button class="sb" onclick="qa('UPSC Civil Services ki preparation kaise shuru karein')">UPSC Guide</button>
-            <button class="sb" onclick="qa('JKSSB ke latest job notifications kya hain')">JKSSB Jobs</button>
-            <button class="sb" onclick="qa('Free mein NCERT PDF kahan se download karein')">Free PDFs</button>
-            <button class="sb" onclick="qa('SSC CGL 2024 ki preparation kaise karein')">SSC CGL</button>
+            <button class="sb" onclick="qa('Class 10 Science important chapters board exam')">Class 10 Science</button>
+            <button class="sb" onclick="qa('UPSC Civil Services preparation kaise shuru karein')">UPSC Guide</button>
+            <button class="sb" onclick="qa('JKSSB latest job notifications')">JKSSB Jobs</button>
+            <button class="sb" onclick="qa('Free NCERT PDF kahan se download karein')">Free PDFs</button>
           </div>
         </div>
       </div>
     </div>
     <div class="chips" id="chipsEl">
-      <button class="ch" onclick="qa('Class 12 Chemistry important chapters boards ke liye')">Class 12 Chem</button>
-      <button class="ch" onclick="qa('UPSC 2024 current affairs important topics')">UPSC Current Affairs</button>
-      <button class="ch" onclick="qa('JK Police constable exam syllabus aur tips')">JK Police</button>
-      <button class="ch" onclick="qa('NEET 2024 biology important chapters')">NEET Bio</button>
-      <button class="ch" onclick="qa('Railway RRB NTPC exam preparation guide')">Railway NTPC</button>
+      <button class="ch" onclick="qa('Class 12 Chemistry important chapters')">Class 12 Chem</button>
+      <button class="ch" onclick="qa('UPSC current affairs important topics')">UPSC Current Affairs</button>
+      <button class="ch" onclick="qa('JK Police exam syllabus')">JK Police</button>
+      <button class="ch" onclick="qa('NEET biology important chapters')">NEET Bio</button>
+      <button class="ch" onclick="qa('Railway RRB NTPC preparation')">Railway NTPC</button>
     </div>
     <div class="inp-area">
       <div class="inp-wrap">
@@ -124,8 +125,10 @@ header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-l) 60%,var(--
   </main>
 </div>
 <div class="footer">
-  EduBot India 🤖 · Class 1-12 · UPSC · J&K Jobs · SSC · Railway · JEE · NEET · 🇮🇳 100% Free
-</div><script>
+  EduBot India 🤖 · Class 1-12 · UPSC · J&K Jobs · SSC · Railway · JEE · NEET · 🇮🇳 Free
+</div>
+<script>
+var APIKEY='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';
 var hist=[];
 var SYS="You are EduBot India, a warm and expert FREE AI education assistant for Indian students. Powered by Claude AI.\n\nExpertise:\n1. School Classes 1-12: NCERT, CBSE, ICSE, JKBOSE, all state boards.\n2. UPSC Civil Services: Prelims, Mains, Interview.\n3. J&K Govt Jobs: JKSSB, JKPSC, JK Police, Forest, Revenue, Teachers.\n4. Central Govt Jobs: SSC, Railways, Banking, Defence.\n5. Entrance Exams: JEE, NEET, CUET.\nFree resources: ncert.nic.in, diksha.gov.in, Khan Academy India, Physics Wallah YouTube, ClearIAS, Drishti IAS.\nAnswer in same language as student. Use **bold** for key terms. Be warm and encouraging.";
 
@@ -158,6 +161,7 @@ function showTy(){
   c.appendChild(d);c.scrollTop=c.scrollHeight;
 }
 function rmTy(){var e=document.getElementById('ty');if(e)e.remove();}
+
 async function send(){
   var inp=document.getElementById('ui'),btn=document.getElementById('sndBtn');
   var msg=inp.value.trim();
@@ -167,10 +171,21 @@ async function send(){
   hist.push({role:'user',content:msg});
   showTy();
   try{
-    var res=await fetch('https://api.anthropic.com/v1/messages',{
+    var body=JSON.stringify({
+      model:'claude-haiku-4-5-20251001',
+      max_tokens:1024,
+      system:SYS,
+      messages:hist
+    });
+    var proxyUrl='https://corsproxy.io/?'+encodeURIComponent('https://api.anthropic.com/v1/messages');
+    var res=await fetch(proxyUrl,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1024,system:SYS,messages:hist})
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':APIKEY,
+        'anthropic-version':'2023-06-01'
+      },
+      body:body
     });
     rmTy();
     if(!res.ok){var e=await res.json().catch(function(){return{};});throw new Error((e.error&&e.error.message)||'Error '+res.status);}
@@ -201,9 +216,9 @@ function updChips(q){
   q=q.toLowerCase();
   var s={
     school:[{t:'Class 10 Maths',q:'Class 10 important maths formulas'},{t:'NCERT Solutions',q:'NCERT solutions free kahan milenge'},{t:'Board Exam Tips',q:'Board exam mein achhe marks kaise layein'}],
-    upsc:[{t:'UPSC Books',q:'UPSC ke liye best books ki list'},{t:'Study Plan',q:'12 mahine ka UPSC study plan'},{t:'Current Affairs',q:'UPSC ke liye current affairs kaise padhen'}],
-    jk:[{t:'JKSSB FAA',q:'JKSSB Finance Account Assistant syllabus'},{t:'KAS Exam',q:'KAS exam ki preparation kaise karein'},{t:'JK Police',q:'JK Police SI exam syllabus aur tips'}],
-    central:[{t:'SSC Strategy',q:'SSC CGL complete preparation strategy'},{t:'Bank PO',q:'Bank PO exam preparation kaise karein'},{t:'RRB NTPC',q:'Railway NTPC exam preparation guide'}]
+    upsc:[{t:'UPSC Books',q:'UPSC ke liye best books'},{t:'Study Plan',q:'12 mahine ka UPSC study plan'},{t:'Current Affairs',q:'UPSC current affairs kaise padhen'}],
+    jk:[{t:'JKSSB FAA',q:'JKSSB Finance Account Assistant syllabus'},{t:'KAS Exam',q:'KAS exam preparation kaise karein'},{t:'JK Police',q:'JK Police SI exam syllabus'}],
+    central:[{t:'SSC Strategy',q:'SSC CGL complete preparation'},{t:'Bank PO',q:'Bank PO exam preparation'},{t:'RRB NTPC',q:'Railway NTPC exam guide'}]
   };
   var k='school';
   if(q.match(/upsc|ias|prelim|mains|civil/))k='upsc';

@@ -177,7 +177,7 @@ async function send(){
       system:SYS,
       messages:hist
     });
-    var proxyUrl='https://corsproxy.io/?'+encodeURIComponent('https://api.anthropic.com/v1/messages');
+    var proxyUrl='https://api.allorigins.win/raw?url='+encodeURIComponent'+encodeURIComponent('https://api.anthropic.com/v1/messages');
     var res=await fetch(proxyUrl,{
       method:'POST',
       headers:{
